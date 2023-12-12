@@ -41,7 +41,7 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
 
-  // log out user
+  // Cerrar la sesión del usuario
   const logOutUser = () => {
     dispatch(userLogoutAction());
     window.location.reload(true);
@@ -53,7 +53,7 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Container>
-        {/* principal Menu */}
+        {/* Menu principal */}
         <Toolbar disableGutters>
           <HouseIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
