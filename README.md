@@ -48,4 +48,3 @@ ya que solo los usuarios registrados podran acceder a esas funciones.
 - Css
 - JavaScript
 - Mongodb
-
