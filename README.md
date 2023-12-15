@@ -34,10 +34,6 @@ ya que solo los usuarios registrados podran acceder a esas funciones.
 
 5. Abre MongoDB Compass y asegúrate de que el servicio `mongod` esté en ejecución.
 
-## Descripción del Proyecto;
-
- - Esta web esta e
-
 
 
 ## Tecnologías utilizadas;
