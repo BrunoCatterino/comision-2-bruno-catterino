@@ -1,32 +1,31 @@
-const errorResponse = require("../utils/errorResponse");
-const jwt = require("jsonwebtoken");
-const User = require("../models/userModel");
-const { token } = require("morgan");
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require('../utils/errorResponse');
+const jwt = require('jsonwebtoken');
+const User = require('../models/userModel');
 
-// chequea que el usuario se autentica
+
+// Compruebe si el usuario está autenticado
 exports.isAuthenticated = async (req, res, next) => {
-  //Asegúrese de que exista el token
-  if (!token) {
-    return next(new ErrorResponse("Debes iniciar sesión...", 401));
-  }
+    const { token } = req.cookies;
+    // Asegúrese de que exista el token
+    if (!token) {
+        return next(new ErrorResponse('Debes iniciar sesión...', 401));
+    }
 
-  try {
-    // Verifica el token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.User = await User.findById(decoded.id);
-    next();
-  } catch (error) {
-    return next(new ErrorRespons("Debes iniciar sesión", 401));
-  }
-};
+    try {
+        // Verificar token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = await User.findById(decoded.id);
+        next();
 
-//middleware para admin
+    } catch (error) {
+        return next(new ErrorResponse('Debes iniciar sesión', 401));
+    }
+}
+
+//middleware para el administrador
 exports.isAdmin = (req, res, next) => {
-  if (req.user.role === "user") {
-    return next(
-      new ErrorResponse("Acceso denegado, debes ser un administrador", 401)
-    );
-  }
-  next();
-};
+    if (req.user.role === 'user') {
+        return next(new ErrorResponse('Acceso denegado, no es un administrador', 401));
+    }
+    next();
+}
