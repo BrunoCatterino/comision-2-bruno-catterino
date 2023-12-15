@@ -9,9 +9,9 @@ Proyecto Final Epica Tramo III
 
 1. Cambia el nombre del archivo `.example.env` por `.env`.
 
-2. En la terminal, navega a la carpeta frontend:
+2. En la terminal, navega a la carpeta backend:
     ```bash
-    cd frontend
+    cd backend
     ```
 
 3. Instala las dependencias con el siguiente comando:
@@ -28,6 +28,6 @@ Proyecto Final Epica Tramo III
 
 ## Tecnologías utilizadas;
 
-- React
-- Css
-- JavaScript
+- Nodejs
+- Express
+- Mongodb
